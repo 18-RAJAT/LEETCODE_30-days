@@ -1,2 +1,2 @@
-# LEETCODE_30-days
-Easy-Medium-High
+# _30-days
+Easy-Medium-High(lvl)
