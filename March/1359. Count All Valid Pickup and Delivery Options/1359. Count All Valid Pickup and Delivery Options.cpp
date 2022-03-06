@@ -1,23 +1,26 @@
-const int MOD = 10^9+7;
-
 class Solution {
 public:
     int countOrders(int n) {
         
-        vector<int>dp(n+1,0);
-        dp[1] = 1;
+        long result = 1, mod = 1000000007;
         
-        for(int i=2;i<=n;++i)
+        for(int i = 1; i <=n; ++i)
         {
-            //Here t contains sum of elements (2*i-1) numbers...!!
-            long long int t = (i*2*(i*2-1)/2) % MOD;
+			
+            result *= i;
             
-            long long int y = (dp[i-1]*(t));
             
-            dp[i] = y % MOD;   
+			// Avoid OVERFLOW
+            result %= mod;
+			
+            result *= (2*i-1);
+			
+		    //Again Avoid OVERFLOW
+            result %= mod;
         }
         
-        return dp[n];
+		   
+        return result % mod;
         
     }
 };
